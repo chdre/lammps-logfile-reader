@@ -28,3 +28,4 @@ termo_style = log_reader.keys()
 # To-do
 - Add user customisability for halting condition
 - Create pypi package
+- Create tests
