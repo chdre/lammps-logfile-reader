@@ -5,9 +5,13 @@ import json
 
 
 class readLog:
+    """Read a LAMMPS logfile.
+    """
+
     def __init__(self, inputFile):
         """
-        Dataset defined between start and stop
+        Arguments:
+            inputFile (str): Full path to logfile.
         """
         self.start_data = 'Per MPI rank'
         self.end_data = 'Loop time'
@@ -68,6 +72,9 @@ class readLog:
 
     def datadict(self):
         """Creates dictionary containing information from logfile.
+
+        Returns:
+            self.thermo_dict (dict): Dictionary containing columns of logfile.
         """
         self.thermo_dict = {key: [] for key in self.thermo_titles}
         for i in range(self.No_thermo):
