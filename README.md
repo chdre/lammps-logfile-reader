@@ -19,3 +19,12 @@ log_reader = readLog(path)
 temperature = log_reader.get(variable)
 ```
 
+To get full list of keys (thermo_style)
+```
+termo_style = log_reader.keys()
+```
+
+
+# To-do
+- Add user customisability for halting condition
+- Create pypi package
