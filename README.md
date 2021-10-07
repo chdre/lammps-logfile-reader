@@ -7,9 +7,15 @@ Creates an object containing the information in the logfile, stored in as dictio
 * pandas
 * regex
 
+# Install
+Install using pip
+```
+pip install git+https://github.com/chdre/lammps-logfile-reader
+```
+
 # Usage
 ```
-from read_lammps_log.py import readLog
+from lammps_logfile_reader import readLog
 
 path = 'some/path/log.lammps'
 variable = 'Temp'
@@ -26,5 +32,4 @@ termo_style = log_reader.keys()
 
 # To-do
 - Add user customisability for halting condition
-- Create pypi package
 - Create tests
