@@ -19,6 +19,6 @@ setuptools.setup(
         'Operating System :: OS Independent',
     ],
     python_requires='>=3.6',
-    install_requires=['pandas', 'regex'],
+    install_requires=['regex'],
     include_package_data=True,
 )
