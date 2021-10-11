@@ -28,7 +28,7 @@ temperature = logdict.get(variable)
 To get full list of keys (thermo_style)
 ```
 
-termo_style = lmplog.keys()
+termo_style = logdict.keys()
 ```
 
 
