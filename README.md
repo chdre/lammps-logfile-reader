@@ -15,18 +15,20 @@ pip install git+https://github.com/chdre/lammps-logfile-reader
 
 # Usage
 ```
-from lammps_logfile_reader import readLog
+from lammps_logfile_reader import readlog
+
+lmplog = readlog(path)
 
 path = 'some/path/log.lammps'
 variable = 'Temp'
 
-log_reader = readLog(path)
-temperature = log_reader.get(variable)
+temperature = lmplog.get(variable)
 ```
 
 To get full list of keys (thermo_style)
 ```
-termo_style = log_reader.keys()
+
+termo_style = lmplog.keys()
 ```
 
 
