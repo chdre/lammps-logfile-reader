@@ -11,13 +11,23 @@ class readLog:
         Arguments:
             inputFile (str): Full path to logfile.
         """
+        if not isinstance(inputFile, str):
+            raise TypeError('Parameter inputFile must be of type str')
+
+        with open(inputFile, 'r', newline='\n') as f_open:
+            self.logdata = f_open.read().replace('\r', '')
+
         self.start_data = 'Per MPI rank'
         self.end_data = 'Loop time'
         self.fix_halt = 'Fix halt'
         self.thermo_dict = {}
 
-        with open(inputFile, 'r', newline='\n') as f_open:
-            self.logdata = f_open.read().replace('\r', '')
+    def read(self):
+        """Creates dictionary containing information from logfile.
+
+        Returns:
+            self.thermo_dict (dict): Dictionary containing columns of logfile.
+        """
 
         # Reducing log file by removing multiple spaces and copy of script up to self.start_data
         self.logdata = re.sub(' +', ' ', self.logdata)
@@ -66,14 +76,6 @@ class readLog:
             # If there is no end detected (typically MPI_Abort / time ran out)
             self.ind_line_below_thermo.append(-1)
 
-        return
-
-    def datadict(self):
-        """Creates dictionary containing information from logfile.
-
-        Returns:
-            self.thermo_dict (dict): Dictionary containing columns of logfile.
-        """
         self.thermo_dict = {key: [] for key in self.thermo_titles}
         for i in range(self.No_thermo):
             lines = self.logdata[
@@ -83,6 +85,6 @@ class readLog:
             for line in lines:
                 elms = line.split()
                 for key, elm in zip(self.thermo_titles, elms):
-                    self.thermo_dict[key].append(elm)
+                    self.thermo_dict[key].append(np.float(elm))
 
         return self.thermo_dict
