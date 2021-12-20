@@ -1,3 +1,3 @@
 from . import lammps_logfile_reader
 
-readLog = lammps_logfile_reader.readLog
+ReadLog = lammps_logfile_reader.ReadLog

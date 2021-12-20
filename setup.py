@@ -5,7 +5,7 @@ with open('README.md', 'r') as infile:
 
 setuptools.setup(
     name='lammps_logfile_reader',
-    version='0.5',
+    version='1.0',
     author='Christer Dreierstad',
     author_email='christerdr@outlook.com',
     description='Package for reading LAMMPS logfiles',
